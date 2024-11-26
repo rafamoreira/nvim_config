@@ -4,8 +4,8 @@
 -- See the kickstart.nvim README for more information
 return {
   'ThePrimeagen/vim-be-good',
-  { 'wakatime/vim-wakatime', lazy = false },
   'isobit/vim-caddyfile',
+  { 'wakatime/vim-wakatime', lazy = false },
   {
     'NeogitOrg/neogit',
     dependencies = {
