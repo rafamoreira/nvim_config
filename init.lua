@@ -1,8 +1,5 @@
 require("config.lazy")
 
--- temporary fix for inspect
--- vim.hl = vim.highlight
-
 vim.opt.clipboard = "unnamedplus"
 vim.opt.number = true
 vim.opt.relativenumber = true
