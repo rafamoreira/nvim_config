@@ -1,9 +1,11 @@
 require("config.lazy")
 
 -- temporary fix for inspect
-vim.hl = vim.highlight
+-- vim.hl = vim.highlight
 
 vim.opt.clipboard = "unnamedplus"
+vim.opt.number = true
+vim.opt.relativenumber = true
 vim.keymap.set("n", "<space><space>x", "<cmd>source %<CR>")
 vim.keymap.set("n", "<space>x", ":.lua<CR>")
 vim.keymap.set("v", "<space>x", ":lua<CR>")
