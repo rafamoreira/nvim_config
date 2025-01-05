@@ -1,8 +1,13 @@
 require("config.lazy")
 
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
 vim.opt.clipboard = "unnamedplus"
 vim.opt.number = true
 vim.opt.relativenumber = true
+vim.opt.undofile = true
+
 vim.keymap.set("n", "<space><space>x", "<cmd>source %<CR>")
 vim.keymap.set("n", "<space>x", ":.lua<CR>")
 vim.keymap.set("v", "<space>x", ":lua<CR>")
