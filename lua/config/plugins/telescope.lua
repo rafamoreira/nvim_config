@@ -21,22 +21,37 @@ return {
 			require('telescope').load_extension('fzf')
 
 			local wk = require("which-key")
+			wk.add({
+				-- search group
+				{ "<leader>s",  group = "search" },
+				{ "<leader>sf", require('telescope.builtin').find_files, desc = "Seach Files", mode = "n" },
+				{ "<leader>sh", require('telescope.builtin').help_tags,  desc = "Search Help", mode = "n" },
+				{
+					"<leader>sg",
+					function()
+						require('telescope.builtin').find_files {
+							cwd = vim.fs.joinpath(vim.fn.stdpath("data"), "lazy")
+						}
+					end,
+					desc = "Search Neovim runtime files",
+					mode = "n"
+				},
+				-- edit group
+				{ "<leader>e", group = "edit" },
+				{
+					"<leader>en",
+					function()
+						local opts = require('telescope.themes').get_dropdown({
+							cwd = vim.fn.stdpath("config")
+						})
+						require('telescope.builtin').find_files(opts)
+					end,
+					desc = "Edit Neovim config",
+					mode = "n"
+				},
 
-			vim.keymap.set("n", "<space>sf", require('telescope.builtin').find_files)
-			vim.keymap.set("n", "<space>sh", require('telescope.builtin').help_tags)
-			vim.keymap.set("n", "<space>sg", function()
-				require('telescope.builtin').find_files {
-					cwd = vim.fs.joinpath(vim.fn.stdpath("data"), "lazy")
-				}
-			end)
+			})
 			require "config.telescope.multigrep".setup()
-			vim.keymap.set("n", "<space>en", function()
-				local opts = require('telescope.themes').get_dropdown({
-					cwd = vim.fn.stdpath("config")
-				})
-
-				require('telescope.builtin').find_files(opts)
-			end)
 		end,
 	},
 }
