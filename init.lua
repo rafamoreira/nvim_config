@@ -17,12 +17,14 @@ vim.opt.undofile = true
 local wk = require("which-key")
 wk.add({
 	{ "<leader>",          group = "Leader" },
+	{ "<leader>t",         group = "TODO" },
 	{ "<leader><leader>",  group = "Source" },
 	{ "<Esc>",             "<cmd>nohlsearch<CR>",     desc = "Clear search highlights",        mode = "n" },
 	{ "<leader>q",         vim.diagnostic.setloclist, desc = "Open diagnostic [Q]uickfix list" },
 	{ "<leader><leader>x", "<cmd>source %<CR>",       desc = "Source current file",            mode = "n" },
 	{ "<leader><leader>l", ":.lua<CR>",               desc = "Execute current line",           mode = "n" },
 	{ "<leader><leader>s", ":lua<CR>",                desc = "Execute selection",              mode = "v" },
+	-- { "<leader>tq",        ":TodoTelescope<CR>",      desc = "TODO list",                      mode = "n" },
 })
 
 
